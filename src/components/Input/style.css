@@ -1,0 +1,29 @@
+.password-input::after {
+  z-index: 10;
+  content: "SENHA";
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  top: 1.8rem;
+  left: 1rem;
+  color: #969696;
+  transition: all 150ms ease-in-out;
+}
+
+.username-input::after {
+  z-index: 10;
+  content: "NOME DE USUÁRIO";
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  top: 1.8rem;
+  left: 1rem;
+  color: #969696;
+  transition: all 150ms ease-in-out;
+}
+
+.active::after {
+  left: 0.5rem;
+  top: 0.8rem;
+  font-size: 0.6rem;
+}

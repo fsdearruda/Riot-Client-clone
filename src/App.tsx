@@ -7,7 +7,7 @@ function App() {
         <Sidebar />
       </Flex>
       <Flex minW="80vw">
-        <Image alt="Imagem foda" src="https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt31bf9f8550de0840/60ee140691d9e12c4837c20f/zaun-backstreetdeals.jpg"></Image>
+        <Image draggable={false} alt="Imagem foda" src="https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt31bf9f8550de0840/60ee140691d9e12c4837c20f/zaun-backstreetdeals.jpg"></Image>
       </Flex>
     </Flex>
   );
