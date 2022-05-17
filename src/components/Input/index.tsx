@@ -1,5 +1,5 @@
 import "./style.css";
-import { Text, Input, IconButton, Icon, Checkbox, HStack, Flex, InputGroup, InputRightElement, SlideFade, useDisclosure } from "@chakra-ui/react";
+import { Input, Icon, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useState } from "react";
 
@@ -14,6 +14,8 @@ const UserInput = ({ type, value, onChange, placeholder }: UserInputProps) => {
   const [focused, setFocused] = useState(false);
   const [hidden, setHidden] = useState(true);
 
+  // Refazer o css usando styled components
+
   return type === "password" ? (
     <InputGroup className={`password-input${focused || value ? " active" : ""}`}>
       <Input
@@ -26,8 +28,8 @@ const UserInput = ({ type, value, onChange, placeholder }: UserInputProps) => {
         height="3.5rem"
         value={value}
         onChange={onChange}
-        onFocus={e => setFocused(true)}
-        onBlur={e => setFocused(false)}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
         my={2}
         maxW="50ch"
         focusBorderColor="black"
@@ -47,9 +49,7 @@ const UserInput = ({ type, value, onChange, placeholder }: UserInputProps) => {
             cursor="pointer"
             aria-label={hidden ? "Mostrar conteúdo" : "Esconder conteúdo"}
             as={hidden ? AiOutlineEyeInvisible : AiOutlineEye}
-            onClick={() => {
-              setHidden(!hidden);
-            }}
+            onClick={() => setHidden(!hidden)}
             onMouseDown={(e: any) => e.preventDefault()}
             onMouseUp={(e: any) => e.preventDefault()}
           ></Icon>

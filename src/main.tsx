@@ -2,7 +2,6 @@ import { ChakraProvider, extendTheme, ColorModeScript, type ThemeConfig } from "
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-
 // Botões
 // Padrão:  #d13639
 // Hover: #bc252a
@@ -28,7 +27,14 @@ const config: ThemeConfig = {
   useSystemColorMode: false,
 };
 
-const theme = extendTheme({ config, colors, components: { Button: { baseStyle: { _focus: { boxShadow: "none" } } } } });
+const theme = extendTheme({
+  config,
+  colors,
+  fonts: {
+    body: "Questrial, sans-serif",
+  },
+  components: { Button: { baseStyle: { _focus: { boxShadow: "none" } } } },
+});
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

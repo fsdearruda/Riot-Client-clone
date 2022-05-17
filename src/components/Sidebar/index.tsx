@@ -1,25 +1,25 @@
-import { Text, Input, IconButton, Icon, Checkbox, HStack, Flex, Box, SlideFade, useDisclosure } from "@chakra-ui/react";
+import { Text, Box, Icon, Checkbox, HStack, Flex, SlideFade, useDisclosure, Image } from "@chakra-ui/react";
 import { BsArrowRightShort, BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useState } from "react";
 import UserInput from "../Input";
 
 const Sidebar = () => {
   const { isOpen, onToggle } = useDisclosure();
-  const [hidden, setHidden] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (username.length < 2 || !password) return;
     setUsername("");
     setPassword("");
   };
 
   return (
     <Flex direction="column" justifyContent="center" alignItems="center">
-      <Text my={12} fontWeight="bold" fontSize="3xl">
+      <Image my={12} height="30px" src="/assets/riot-logo.png" alt="riot games logo" />
+      <Text my={4} fontWeight="bold" fontSize="3xl">
         Fazer Login
       </Text>
       <form onSubmit={handleSubmit}>
@@ -77,45 +77,46 @@ const Sidebar = () => {
           >
             <Icon color="white" w={4} h={4} as={BsApple} />
           </Flex>
-          {/*      <IconButton
-            _hover={{ backgroundColor: "#f7f7f7" }}
-            _focusWithin={{ backgroundColor: "#f0f0f0" }}
-            colorScheme="whiteAlpha"
-            aria-label="Fazer login via Google"
-            icon={<Icon w={4} h={4} as={FcGoogle} />}
-          ></IconButton> */}
-          {/*         <IconButton
-            _hover={{ backgroundColor: "#141414" }}
-            _focusWithin={{ backgroundColor: "#292929" }}
-            bg="black"
-            aria-label="Fazer login via Apple"
-            icon={<Icon color="white" w={4} h={4} as={BsApple} />}
-          ></IconButton> */}
         </HStack>
 
-        <Checkbox fontWeight="semibold" colorScheme="red">
+        <Checkbox m={1} fontWeight="semibold" colorScheme="red">
           Manter Login
         </Checkbox>
+
         {/* Trocar "username.length < 2 || !password" por um state ou algo do tipo */}
-        <Flex py="50%" justifyContent="center" alignItems="center">
-          <IconButton
+        <Flex my="30%" justifyContent="center" alignItems="center">
+          <Flex
+            cursor={username.length < 2 || !password ? "not-allowed" : "pointer"}
+            justifyContent="center"
+            p={4}
+            as="button"
+            type="submit"
+            aria-label="Enviar"
+            bg={username.length < 2 || !password ? "#f9f9f9" : "interactable.600"}
+            _hover={{ backgroundColor: username.length < 2 || !password ? "none" : "interactable.700" }}
+            borderRadius="2xl"
+            outline={username.length < 2 || !password ? "2px solid #e8e8e8" : "none"}
+          >
+            <Icon m={0} as={BsArrowRightShort} w={8} h={8} color={username.length < 2 || !password ? "#e8e8e8" : "white"} />
+          </Flex>
+          {/*        <IconButton
             type="submit"
             isDisabled={username.length < 2 || !password}
             size="lg"
             aria-label="Enviar"
             colorScheme="red"
             borderRadius="xl"
-            _hover={{ backgroundColor: "interactable.700" }}
+            _hover={{ backgroundColor: username.length < 2 || !password ? "none" : "interactable.700" }}
             bg={username.length < 2 || !password ? "#f9f9f9" : "interactable.600"}
-            outline={username.length < 2 || !password ? "3px solid #e8e8e8" : "none"}
+            outline={username.length < 2 || !password ? "2px solid #e8e8e8" : "none"}
             icon={<Icon w={8} h={8} as={BsArrowRightShort} color={username.length < 2 || !password ? "#e8e8e8" : "white"} />}
-          />
+          /> */}
         </Flex>
         <Text userSelect="none" onClick={onToggle} cursor="pointer" textAlign="center" fontSize="sm" fontWeight="bold" _hover={{ color: "#0c0c0c" }} color="GrayText">
           NÃO CONSEGUE INICIAR SSESSÃO?
         </Text>
         <SlideFade in={isOpen} offsetY="20px">
-          <Text textAlign="center" fontSize="sm" fontWeight="bold" color="GrayText">
+          <Text userSelect="none" textAlign="center" fontSize="sm" fontWeight="bold" color="GrayText">
             AINDA BEM!
           </Text>
         </SlideFade>

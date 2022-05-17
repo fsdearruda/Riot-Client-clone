@@ -5,7 +5,7 @@ function App() {
   return (
     <Flex justifyContent="center" height="100vh" alignItems="center" direction="row">
       <Flex
-        height="81vh"
+        height="80vh"
         p={10}
         m={0}
         bg="#f9f9f9"
@@ -17,13 +17,8 @@ function App() {
         <Sidebar />
       </Flex>
       {isDesktop && (
-        <Flex minW="80vw">
-          <Image
-            height="81vh"
-            draggable={false}
-            alt="Imagem foda"
-            src="https://images.contentstack.io/v3/assets/blt187521ff0727be24/blt31bf9f8550de0840/60ee140691d9e12c4837c20f/zaun-backstreetdeals.jpg"
-          ></Image>
+        <Flex maxW="1300px">
+          <Image height="80vh" draggable={false} alt="Imagem foda" src="/assets/cover.png"></Image>
         </Flex>
       )}
     </Flex>
