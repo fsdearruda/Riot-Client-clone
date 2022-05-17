@@ -18,11 +18,12 @@ const UserInput = ({ type, value, onChange, placeholder }: UserInputProps) => {
     <InputGroup className={`password-input${focused || value ? " active" : ""}`}>
       <Input
         p="0.5rem"
+        pt="1rem"
         bg="#ededed"
         _hover={{ backgroundColor: "#e7e7e7" }}
         _focusWithin={{ backgroundColor: "#f9f9f9" }}
         pr="4.5rem"
-        height="60px"
+        height="3.5rem"
         value={value}
         onChange={onChange}
         onFocus={e => setFocused(true)}
@@ -32,31 +33,36 @@ const UserInput = ({ type, value, onChange, placeholder }: UserInputProps) => {
         focusBorderColor="black"
         type={hidden ? "password" : "text"}
       />
-     {/*  {focused && ( */}
-        <InputRightElement as="span" onClick={(e: any) => e.stopPropagation()}>
-          <IconButton
+      {focused && (
+        <InputRightElement>
+          <Icon
             bg="transparent"
             _hover={{ backgroundColor: "transparent" }}
             _focusWithin={{ backgroundColor: "transparent" }}
             transform="auto"
             translateY="4"
             translateX="-1"
-            h="2rem"
+            w={5}
+            h={5}
+            cursor="pointer"
             aria-label={hidden ? "Mostrar conteúdo" : "Esconder conteúdo"}
-            icon={<Icon w={5} h={5} as={hidden ? AiOutlineEyeInvisible : AiOutlineEye}></Icon>}
-            onClick={(e: any) => {
+            as={hidden ? AiOutlineEyeInvisible : AiOutlineEye}
+            onClick={() => {
               setHidden(!hidden);
             }}
-          ></IconButton>
+            onMouseDown={(e: any) => e.preventDefault()}
+            onMouseUp={(e: any) => e.preventDefault()}
+          ></Icon>
         </InputRightElement>
-    {/*   )} */}
+      )}
     </InputGroup>
   ) : (
     <InputGroup className={`username-input${focused || value ? " active" : ""}`}>
       <Input
         p="0.5rem"
+        pt="1rem"
         bg="#ededed"
-        height="60px"
+        height="3.5rem"
         _hover={{ backgroundColor: "#e7e7e7" }}
         _focusWithin={{ backgroundColor: "#f9f9f9" }}
         value={value}
