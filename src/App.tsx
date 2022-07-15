@@ -4,21 +4,12 @@ function App() {
   const isDesktop = useBreakpointValue({ base: false, md: true });
   return (
     <Flex justifyContent="center" height="100vh" alignItems="center" direction="row">
-      <Flex
-        height="80vh"
-        p={10}
-        m={0}
-        bg="#f9f9f9"
-        justifyContent="center"
-        minW={isDesktop ? "20vw" : "80vw"}
-        borderRadius={isDesktop ? "none" : "3xl"}
-        boxShadow={isDesktop ? "none" : "2xl"}
-      >
+      <Flex justifyContent="center">
         <Sidebar />
       </Flex>
       {isDesktop && (
         <Flex maxW="80vw">
-          <Image height="80vh" draggable={false} alt="Cover Image" src="/assets/cover.png"></Image>
+          <Image height="90vh" draggable={false} alt="Cover Image" src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kayn_0.jpg"></Image>
         </Flex>
       )}
     </Flex>

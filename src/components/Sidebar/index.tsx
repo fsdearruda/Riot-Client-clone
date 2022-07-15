@@ -1,4 +1,4 @@
-import { Text, Icon, Checkbox, HStack, Flex, SlideFade, useDisclosure, Image } from "@chakra-ui/react";
+import { Text, Icon, Checkbox, HStack, Flex, SlideFade, useDisclosure, Image, useBreakpointValue } from "@chakra-ui/react";
 import { BsArrowRightShort, BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
@@ -8,6 +8,7 @@ const Sidebar = () => {
   const { isOpen, onToggle } = useDisclosure();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const isDesktop = useBreakpointValue({ base: false, md: true });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -17,7 +18,18 @@ const Sidebar = () => {
   };
 
   return (
-    <Flex direction="column" justifyContent="center" alignItems="center">
+    <Flex
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      bg="#f9f9f9"
+      px={10}
+      height="90vh"
+      maxW={isDesktop ? "40rem" : "100%"}
+      minW={isDesktop ? "520px" : "80vw"}
+      borderRadius={isDesktop ? "none" : "3xl"}
+      boxShadow={isDesktop ? "none" : "2xl"}
+    >
       <Image my={12} height="30px" src="/assets/riot-logo.png" alt="riot games logo" />
       <Text my={4} fontWeight="bold" fontSize="3xl">
         Fazer Login
@@ -78,13 +90,10 @@ const Sidebar = () => {
             <Icon color="white" w={4} h={4} as={BsApple} />
           </Flex>
         </HStack>
-
         <Checkbox m={1} fontWeight="semibold" colorScheme="red">
           Manter Login
         </Checkbox>
-
-        {/* Trocar "username.length < 2 || !password" por um state ou algo do tipo */}
-        <Flex my="30%" justifyContent="center" alignItems="center">
+        <Flex my="50px" justifyContent="center" alignItems="center">
           <Flex
             cursor={username.length < 2 || !password ? "not-allowed" : "pointer"}
             justifyContent="center"
@@ -100,6 +109,7 @@ const Sidebar = () => {
             <Icon m={0} as={BsArrowRightShort} w={8} h={8} color={username.length < 2 || !password ? "#e8e8e8" : "white"} />
           </Flex>
         </Flex>
+
         <Text userSelect="none" onClick={onToggle} cursor="pointer" textAlign="center" fontSize="sm" fontWeight="bold" _hover={{ color: "#0c0c0c" }} color="GrayText">
           NÃO CONSEGUE INICIAR SSESSÃO?
         </Text>
