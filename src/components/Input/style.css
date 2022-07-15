@@ -1,6 +1,7 @@
 .password-input::after {
   z-index: 10;
   content: "SENHA";
+  cursor: text;
   font-size: 0.8rem;
   font-weight: bold;
   position: absolute;
@@ -13,6 +14,7 @@
 .username-input::after {
   z-index: 10;
   content: "NOME DE USUÁRIO";
+  cursor: text;
   font-size: 0.8rem;
   font-weight: bold;
   position: absolute;

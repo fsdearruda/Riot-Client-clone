@@ -1,4 +1,4 @@
-import { Text, Box, Icon, Checkbox, HStack, Flex, SlideFade, useDisclosure, Image } from "@chakra-ui/react";
+import { Text, Icon, Checkbox, HStack, Flex, SlideFade, useDisclosure, Image } from "@chakra-ui/react";
 import { BsArrowRightShort, BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
@@ -99,18 +99,6 @@ const Sidebar = () => {
           >
             <Icon m={0} as={BsArrowRightShort} w={8} h={8} color={username.length < 2 || !password ? "#e8e8e8" : "white"} />
           </Flex>
-          {/*        <IconButton
-            type="submit"
-            isDisabled={username.length < 2 || !password}
-            size="lg"
-            aria-label="Enviar"
-            colorScheme="red"
-            borderRadius="xl"
-            _hover={{ backgroundColor: username.length < 2 || !password ? "none" : "interactable.700" }}
-            bg={username.length < 2 || !password ? "#f9f9f9" : "interactable.600"}
-            outline={username.length < 2 || !password ? "2px solid #e8e8e8" : "none"}
-            icon={<Icon w={8} h={8} as={BsArrowRightShort} color={username.length < 2 || !password ? "#e8e8e8" : "white"} />}
-          /> */}
         </Flex>
         <Text userSelect="none" onClick={onToggle} cursor="pointer" textAlign="center" fontSize="sm" fontWeight="bold" _hover={{ color: "#0c0c0c" }} color="GrayText">
           NÃO CONSEGUE INICIAR SSESSÃO?

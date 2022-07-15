@@ -17,8 +17,8 @@ function App() {
         <Sidebar />
       </Flex>
       {isDesktop && (
-        <Flex maxW="1300px">
-          <Image height="80vh" draggable={false} alt="Imagem foda" src="/assets/cover.png"></Image>
+        <Flex maxW="80vw">
+          <Image height="80vh" draggable={false} alt="Cover Image" src="/assets/cover.png"></Image>
         </Flex>
       )}
     </Flex>
